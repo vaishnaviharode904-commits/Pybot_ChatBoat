@@ -3,7 +3,6 @@ import random
 import re
 from datetime import datetime
 
-# ---------- Dynamic replies (time / date / day) ----------
 def reply_time():
     now = datetime.now().strftime("%I:%M %p")
     return f"The current time is {now}.\nअभी समय {now} है।"
@@ -21,7 +20,6 @@ def reply_day():
     }
     return f"Today is {day}.\nआज {hindi[day]} है।"
 
-# ---------- Dictionary: (keywords, replies) ----------
 responses = [
     (["time", "samay", "समय", "टाइम"], [reply_time]),
     (["date", "tarikh", "tarikh", "तारीख", "तारीख़"], [reply_date]),
@@ -104,7 +102,6 @@ def get_reply(text):
             return choice() if callable(choice) else choice
     return DEFAULT_REPLY
 
-# ---------- Themes ----------
 FONT = "Nirmala UI"          # Mac/Linux: "Noto Sans Devanagari" or "Arial Unicode MS"
 EMOJI_FONT = "Segoe UI Emoji"
 
@@ -128,7 +125,6 @@ messages = []        # list of (sender, text, time)
 typing_row = None
 pending = 0
 
-# ---------- Rendering ----------
 def stamp():
     return datetime.now().strftime("%I:%M %p")
 
@@ -179,7 +175,6 @@ def add_message(sender, text):
     keep_typing_last()
     scroll_bottom()
 
-# ---------- Typing indicator ----------
 def make_typing_row():
     global typing_row
     t = themes[current_theme]
@@ -204,7 +199,6 @@ def hide_typing():
         typing_row.destroy()
         typing_row = None
 
-# ---------- Chat actions ----------
 def send(event=None, text=None):
     user = (text if text is not None else entry.get()).strip()
     if not user:
@@ -241,7 +235,6 @@ def clear_chat():
     rebuild()
     add_message("bot", "Chat cleared. Say hello!\nचैट साफ़ हो गई। हेलो बोलिए!")
 
-# ---------- Theme ----------
 def apply_theme():
     t = themes[current_theme]
     root.config(bg=t["bg"])
@@ -270,7 +263,6 @@ def toggle_theme():
     current_theme = "dark" if current_theme == "light" else "light"
     apply_theme()
 
-# ---------- UI ----------
 root = tk.Tk()
 root.title("PyBot - English/हिंदी")
 root.geometry("460x640")
@@ -292,7 +284,6 @@ clear_btn.pack(side="right", padx=6)
 theme_btn = tk.Button(header, command=toggle_theme, relief="flat", bd=0)
 theme_btn.pack(side="right")
 
-# Scrollable message area
 chat_area = tk.Frame(root)
 chat_area.pack(fill="both", expand=True)
 canvas = tk.Canvas(chat_area, highlightthickness=0)
@@ -318,7 +309,6 @@ canvas.bind_all("<MouseWheel>", on_wheel)
 canvas.bind_all("<Button-4>", on_wheel)
 canvas.bind_all("<Button-5>", on_wheel)
 
-# Quick reply chips
 chips_bar = tk.Frame(root, pady=4)
 chips_bar.pack(fill="x")
 chips = []
@@ -329,7 +319,6 @@ for label, msg in [("👋 Hello", "hello"), ("🕒 Time", "time"), ("📅 Date",
     b.pack(side="left", padx=4)
     chips.append(b)
 
-# Input bar
 input_bar = tk.Frame(root, pady=8)
 input_bar.pack(fill="x")
 entry = tk.Entry(input_bar, font=(FONT, 11), relief="flat")
