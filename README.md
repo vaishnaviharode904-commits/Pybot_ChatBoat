@@ -7,7 +7,7 @@ A desktop chatbot built with **Python and Tkinter**. It replies in **both Englis
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
 <!-- Replace this with your own screenshot: create an `assets` folder and add screenshot.png -->
-![PyBot Screenshot](assets/screenshot.png)
+![PyBot Screenshot](Screenshot%202026-11-24%20190637.png)
 
 ## ✨ Features
 
@@ -93,7 +93,7 @@ Suggestions and improvements are welcome. Fork the repo, make your changes and o
 
 ## 📄 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.txt) file.
 
 ## 👤 Author
 
