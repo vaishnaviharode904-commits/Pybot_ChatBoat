@@ -97,7 +97,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.txt) f
 
 ## 👤 Author
 
-**YOUR NAME**
+Vaishnavi Harode
 Aspiring Software Developer| Python and Java
 🔗 LinkedIn:https://www.linkedin.com/in/vaishnavi-harode 💻 GitHub:https://github.com/vaishnaviharode904-commits
 
